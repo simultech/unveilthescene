@@ -122,16 +122,47 @@ class PagesController extends AppController
 		set_time_limit(500);
 		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/startups.csv', true));
 		$array = json_decode($this -> convertCSVtoJSON($csv), true);
+		$file = 'last.csv';
 
-		for ($i = 654; $i < count($array); $i++)
+		//foreach ($array as $item)
+		for ($i = 425; $i < count($array); $i++)
 		{
-			// Initialize session and set URL.
 			$item = $array[$i];
-			$result = $this -> scrape($item["user_link"]);
+			$result = $this -> scrape($item['user_link']);
 			$html = str_get_html($result);
+			$headerArray = $html -> find('div[class=u-colorGray9 u-fontSize12 s-vgTop0_5]');
+			$tags = '';
 
-			foreach($html -> find('div[class=company-logo]') as $element)
-				echo $element -> children(0) -> src . '<br>';
+			$tagsArray = $headerArray[0] -> find('span[class=js-market_tags]');
+			foreach ($tagsArray[0] -> find('a[class=tag]') as $tag)
+			{
+				$tags = $tags . $tag -> innertext . ';';
+			}
+
+			$url = $headerArray[0] -> children(3) -> children(4) -> children(0) -> href;
+			$tagsAndURL = $tags . ',' . $url . PHP_EOL;
+			echo $tagsAndURL . '<br>';
+
+			file_put_contents($file, $tagsAndURL, FILE_APPEND | LOCK_EX);
+		}
+
+		die();
+	}
+
+	public function scrapeInvestors()
+	{
+		set_time_limit(500);
+		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/investors.csv', true));
+		$array = json_decode($this -> convertCSVtoJSON($csv), true);
+
+		//foreach ($array as $item)
+		for ($i = 256; $i < count($array); $i++)
+		{
+			$item = $array[$i];
+			$result = $this -> scrape($item['user_link']);
+			$html = str_get_html($result);
+			$headerArray = $html -> find('img[class=js-avatar-img]');
+			echo $headerArray[0] -> src . '<br>';
 		}
 
 		die();
