@@ -27,7 +27,8 @@ If anyone is interested in discussing with me further, you can contact me at <in
 	margin:0 auto;
 	text-align:center;
 	line-height:2.2em;
-	color:#222;
+	color:#fff;
+	text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
 }
 #tell input, #tell select {
 	display:block;
