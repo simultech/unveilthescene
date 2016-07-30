@@ -53,10 +53,14 @@
 
 <script id="aq-template" type="text/x-handlebars-template">
   <div class="entry">
-    <h1>{{program}})</h1>
+    <h1>{{program}}</h1>
     <h2>{{sector}}</h2>
-    <div class="body">
-      {{collaborator}}
-    </div>
+    <h3>{{recipient}}</h3>
+    <div class="description">{{summary}}</div>
+    <div class="location">Located in {{location}}</div>
+    <div class="partner">Partner {{partner}}</div>
+    <div class="funding">${{funding}}</div>
+    <div class="priority">{{priority}}</div>
+    <div class="timeframe_months">{{timeframe_months}} months</div>
   </div>
 </script>

@@ -96,7 +96,6 @@ function loadData() {
 				success: function(data) {
 					for(var dat in data) {
 						data[dat]['_template'] = typ;
-						console.log(typ);
 						data[dat]['_search'] = '';
 						for(var attr in data[dat]) {
 							data[dat]['_search'] += ' '+data[dat][attr].toLowerCase();
