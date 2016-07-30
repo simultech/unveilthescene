@@ -2,7 +2,16 @@ var maxItems = 100;
 var lastSearch = '';
 
 $(document).ready(function() {
+	$('#main_area').css({display:'none'});
 	$('#explore-input').keyup(function() {
+		
+		if ($('#explore-input').val() !== '') {
+			$('#main_area').css({display:'block'});
+			$('#explore_sugestions').css({display:'none'});
+		} else {
+			$('#main_area').css({display:'none'});
+			$('#explore_sugestions').css({display:'block'});
+		}
 		
 		if (lastSearch === $('#explore-input').val()) {
 			return;
@@ -33,12 +42,21 @@ $(document).ready(function() {
 		}
 		
 		var yuckwords = [];
+		var locations = {};
 		
 		toRenderItems.sort(comparez);
 		for(i in toRenderItems) {
 			addItem(toRenderItems[i]);
+			if(toRenderItems[i]['location']) {
+				if(!locations[toRenderItems[i]['location']]) {
+					locations[toRenderItems[i]['location']] = 0;
+				}
+				locations[toRenderItems[i]['location']]++;
+			}
 			yuckwords = yuckwords.concat(toRenderItems[i]['_search'].split(' '));
 		}
+		
+		console.log(locations);
 		
 		lastSearch = $('#explore-input').val();
 		

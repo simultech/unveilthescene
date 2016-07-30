@@ -197,6 +197,7 @@ Plugin::load('Migrations');
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+Plugin::unload('DebugKit');
 
 /**
  * Connect middleware/dispatcher filters.

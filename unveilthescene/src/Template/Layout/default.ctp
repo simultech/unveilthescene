@@ -24,7 +24,7 @@
 </head>
 <body>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <div class="container-fluid clearfix">
         <?= $this->fetch('content') ?>
     </div>
 </body>
