@@ -40,6 +40,10 @@ class PagesController extends AppController
     public function home() {
 	    $this->viewBuilder()->layout(false);
     }
+    
+    public function about() {
+	    $this->viewBuilder()->layout(false);
+    }
 
     public function display()
     {
