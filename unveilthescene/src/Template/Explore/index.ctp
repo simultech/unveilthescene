@@ -1,27 +1,5 @@
-<?= $this->Html->script('nav.js') ?>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw&callback=initMap"></script>
-    
-<div id="header-1141" class="section section-header">
-  <div class="header-panel header-logo-panel">
-    
-  </div>
-
-
-  <div class="header-panel header-social-panel " style="margin-top:-7px;">
-    
-    <ul class="header-social-list" data-social-widgets="" data-social-counts="true">
-      
-    </ul>
-    
-  </div>
-  <div class="small-menu ">
-    <a href="#">
-      <i class="icon-menu"></i>
-    </a>
-  </div>
-</div>
-
 	<div id="big-searchBar">
 		<form>
 		  <div class="form-group">

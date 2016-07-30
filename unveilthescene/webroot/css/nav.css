@@ -10,13 +10,17 @@
 	margin-top:-6px;
 }
 
+#unveil-nav a.active {
+	color: #222;
+}
+
 #unveil-nav a:hover {
 	color:#226;
 	text-decoration:none;
 }
 
 html, body {
-	min-width:900px !important;
+	min-width:760px !important;
 }
 
 .section-header {

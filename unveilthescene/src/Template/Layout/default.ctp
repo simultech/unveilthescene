@@ -25,6 +25,29 @@
 </head>
 <body>
     <?= $this->Flash->render() ?>
+    
+<?= $this->Html->script('nav.js') ?>
+    
+<div id="header-1141" class="section section-header">
+  <div class="header-panel header-logo-panel">
+    
+  </div>
+
+
+  <div class="header-panel header-social-panel " style="margin-top:-7px;">
+    
+    <ul class="header-social-list" data-social-widgets="" data-social-counts="true">
+      
+    </ul>
+    
+  </div>
+  <div class="small-menu ">
+    <a href="#">
+      <i class="icon-menu"></i>
+    </a>
+  </div>
+</div>
+    
     <?= $this->fetch('content') ?>
 </body>
 </html>

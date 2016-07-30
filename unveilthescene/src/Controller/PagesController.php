@@ -44,6 +44,10 @@ class PagesController extends AppController
     public function about() {
 	    $this->viewBuilder()->layout(false);
     }
+    
+    public function tell() {
+	    
+    }
 
     public function display()
     {
