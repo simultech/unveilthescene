@@ -11,9 +11,11 @@
     <?= $this->Html->script('jquery.js') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>
     <?= $this->Html->script('handlebars-v4.0.5.js') ?>
+    <?= $this->Html->script('jqcloud.js') ?>
     <?= $this->Html->script('everything.js') ?>
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('jqcloud.css') ?>
     <?= $this->Html->css('style.css') ?>
 
     <?= $this->fetch('meta') ?>

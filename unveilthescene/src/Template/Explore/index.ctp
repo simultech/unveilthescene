@@ -1,3 +1,6 @@
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw&callback=initMap">
+    </script>
 <div id="header" data-spy="affix" data-offset-top="0px">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -27,8 +30,8 @@
 </form>
 </div>
 <div id="sidebar">
-	<div id="map"></div>
-	<div id="tagcloud"></div>
+	<div id="map" style="width:100%; height:50%;"></div>
+	<div id="tagcloud" style="width:100%; height:50%;"></div>
 </div>
 <div id="explore-list"></div>
 
@@ -69,3 +72,4 @@
     <div class="timeframe_months">{{timeframe_months}} months</div>
   </div>
 </script>
+

@@ -3,6 +3,11 @@ var lastSearch = '';
 
 $(document).ready(function() {
 	$('#explore-input').keyup(function() {
+		
+		if (lastSearch === $('#explore-input').val()) {
+			return;
+		}
+		
 		var filters = $('#explore-input').val().toLowerCase().split(' ');
 		
 		var toRenderItems = [];
@@ -27,12 +32,39 @@ $(document).ready(function() {
 			}
 		}
 		
+		var yuckwords = [];
+		
 		toRenderItems.sort(comparez);
 		for(i in toRenderItems) {
 			addItem(toRenderItems[i]);
+			yuckwords = yuckwords.concat(toRenderItems[i]['_search'].split(' '));
 		}
 		
-		lastSearch = filters;
+		lastSearch = $('#explore-input').val();
+		
+		
+		//var yuckwords = ['mat','mat','sat','sat','sat','sat'];
+		
+		var objwords = {};
+		for(var y in yuckwords) {
+			if (yuckwords[y] !== 'startup') {
+				if (!objwords[yuckwords[y]]) {
+					objwords[yuckwords[y]] = 0;
+				}
+				objwords[yuckwords[y]]++;
+			}
+		}
+		var words = [];
+		for(var o in objwords) {
+			if (objwords[o] > 1) {
+				var obj = {};
+				obj['text'] = o;
+				obj['weight'] = objwords[o];
+				words.push(obj);
+			}
+		}
+		$('#tagcloud').jQCloud('destroy');
+		$('#tagcloud').jQCloud(words);
 	});
 });
 
@@ -107,5 +139,20 @@ function loadData() {
 		})(url);
 	}
 }
+
+function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
 
 loadData();
