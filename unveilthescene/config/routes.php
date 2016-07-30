@@ -49,6 +49,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
+    $routes->connect('/explore/', ['controller' => 'Explore', 'action' => 'index']);
 
 	$routes->connect('/api/aq-funding-recipients', ['controller' => 'Pages', 'action' => 'aqFundingRecipients']);
 	$routes->connect('/api/angel_list_investors', ['controller' => 'Pages', 'action' => 'angelListInvestors']);
