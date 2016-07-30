@@ -50,33 +50,50 @@
 
 <script id="investor-template" type="text/x-handlebars-template">
   <div class="entry entry_investor panel panel-default">
-	  	  <div class="panel-body">
+<!-- 	   <div class="panel-heading"></div> -->
+  	<div class="panel-body">
+	  	<div class="col-sm-3">
+		  			  	<img src={{somethng}}>
 
-    <h1><a href="{{user_link}}" target="_blank">{{user_name}}</a></h1>
+	  	</div>
+	  		<div class="col-sm-9 rich_media">
+
+    <h2><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
     <div class="description">{{user_description}}</div>
     <div class="location">Located in {{location}}</div>
     <div class="investments">Investments: {{investments}}</div>
     <div class="followers">Angel List Followers: {{followers}}</div>
 	  	  </div>
+  	</div>
   </div>
 </script>
 
 
 <script id="startup-template" type="text/x-handlebars-template">
   <div class="entry entry_startup panel panel-default r">
-	  	  <div class="panel-body">
-
-    <h1><a href="{{user_link}}" target="_blank">{{user_name}}</a></h1>
-    <div class="description">{{user_description}}</div>
-    <div class="location">Located in {{location}}</div>
-    <div class="followers">Angel List Followers: {{followers}}</div>
-	  	  </div>
+<!--   	<div class="panel-heading"> </div> -->
+	<div class="panel-body">
+	  	<div class="col-sm-3 rich_media" >
+		  	<img src={{logo}}>
+	  	</div>
+		<div class="col-sm-9">
+	  	  <h2><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
+	  	  <div class="description">{{user_description}}</div>
+	  	  <div class="location">Located in {{location}}</div>
+	  	  <div class="followers">Angel List Followers: {{followers}}</div>
+	 </div>
+	</div>
   </div>
 </script>
 
 <script id="aq-template" type="text/x-handlebars-template">
   <div class="entry entry_aq panel panel-default">
 	  <div class="panel-body">
+		  	  	<div class="col-sm-3 rich_media">
+			  	  			  	<img src={{somethng}}>
+		  	  	</div>
+
+		<div class="col-sm-9">
     <h1>{{program}}</h1>
     <h2>{{sector}}</h2>
     <h3>{{recipient}}</h3>
@@ -86,6 +103,7 @@
     <div class="funding">${{funding}}</div>
     <div class="priority">{{priority}}</div>
     <div class="timeframe_months">{{timeframe_months}} months</div>
+	  </div>
 	  </div>
   </div>
 </script>

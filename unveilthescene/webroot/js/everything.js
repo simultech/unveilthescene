@@ -7,89 +7,121 @@ var locationlookups = {};
 $(document).ready(function() {
 	$('#main_area').css({display:'none'});
 	$('#explore-input').keyup(function() {
-		
-		if ($('#explore-input').val() !== '') {
-			$('#main_area').css({display:'block'});
-			$('#explore_sugestions').css({display:'none'});
-		} else {
-			$('#main_area').css({display:'none'});
-			$('#explore_sugestions').css({display:'block'});
-		}
-		
-		if (lastSearch === $('#explore-input').val()) {
-			return;
-		}
-		
-		var filters = $('#explore-input').val().toLowerCase().split(' ');
-		
-		var toRenderItems = [];
-		
-		resetItems();
-		shuffle(items);
-		var curItems = 0;
-		for(var i in items) {
-			var context = items[i];
-			context['rating'] = 0;
-			for(var f in filters) {
-				if (filters[f] !== '' && context['_search'].indexOf(filters[f]) !== -1) {
-					context['rating']++;
-				}
-			}
-			if (context['rating'] > 0) {
-				toRenderItems.push(context);
-				curItems++;
-				if(curItems > maxItems) {
-					break;
-				}
-			}
-		}
-		
-		var yuckwords = [];
-		locations = {};
-		
-		toRenderItems.sort(comparez);
-		for(i in toRenderItems) {
-			addItem(toRenderItems[i]);
-			if(toRenderItems[i]['location']) {
-				if(!locations[toRenderItems[i]['location']]) {
-					locations[toRenderItems[i]['location']] = 0;
-					if(!locationlookups[toRenderItems[i]['location']]) {
-						addLocation(toRenderItems[i]['location']);
-					}
-				}
-				locations[toRenderItems[i]['location']]++;
-			}
-			yuckwords = yuckwords.concat(toRenderItems[i]['_search'].split(' '));
-		}
-		
-		lastSearch = $('#explore-input').val();
-		
-		
-		//var yuckwords = ['mat','mat','sat','sat','sat','sat'];
-		
-		var objwords = {};
-		for(var y in yuckwords) {
-			if (yuckwords[y] !== 'startup') {
-				if (!objwords[yuckwords[y]]) {
-					objwords[yuckwords[y]] = 0;
-				}
-				objwords[yuckwords[y]]++;
-			}
-		}
-		var words = [];
-		for(var o in objwords) {
-			if (objwords[o] > 1) {
-				var obj = {};
-				obj['text'] = o;
-				obj['weight'] = objwords[o];
-				words.push(obj);
-			}
-		}
-		$('#tagcloud').jQCloud('destroy');
-		$('#tagcloud').jQCloud(words);
-		refreshMarkers();
+		inputChanged();
 	});
 });
+
+function inputChanged() {
+	if ($('#explore-input').val() !== '') {
+		$('#main_area').css({display:'block'});
+		$('#explore_sugestions').css({display:'none'});
+	} else {
+		$('#main_area').css({display:'none'});
+		$('#explore_sugestions').css({display:'block'});
+	}
+	
+	if (lastSearch === $('#explore-input').val()) {
+		return;
+	}
+	
+	var filters = $('#explore-input').val().toLowerCase().split(' ');
+	
+	var toRenderItems = [];
+	
+	resetItems();
+	$('#explore-list').append($('<div id="summary"></div>'));
+	shuffle(items);
+	var curItems = 0;
+	for(var i in items) {
+		var context = items[i];
+		context['rating'] = 0;
+		for(var f in filters) {
+			if (filters[f] !== '' && context['_search'].indexOf(filters[f]) !== -1) {
+				context['rating']++;
+			}
+		}
+		if (context['rating'] > 0) {
+			toRenderItems.push(context);
+			curItems++;
+			if(curItems > maxItems) {
+				break;
+			}
+		}
+	}
+	
+	var yuckwords = [];
+	locations = {};
+	
+	var summaryItems = {};
+	
+	toRenderItems.sort(comparez);
+	for(i in toRenderItems) {
+		addItem(toRenderItems[i]);
+		if(!summaryItems[toRenderItems[i]['_template']]) {
+			summaryItems[toRenderItems[i]['_template']] = 0;
+		}
+		summaryItems[toRenderItems[i]['_template']]++;
+		if(toRenderItems[i]['location']) {
+			if(!locations[toRenderItems[i]['location']]) {
+				locations[toRenderItems[i]['location']] = 0;
+				if(!locationlookups[toRenderItems[i]['location']]) {
+					addLocation(toRenderItems[i]['location']);
+				}
+			}
+			locations[toRenderItems[i]['location']]++;
+		}
+		yuckwords = yuckwords.concat(toRenderItems[i]['_search'].split(' '));
+	}
+	
+	console.log(summaryItems);
+	
+	for(var summaryItem in summaryItems) {
+		var new_text = '';
+		switch(summaryItem) {
+			case 'startup':
+				new_text = summaryItems[summaryItem] + ' startups, ';
+				break;
+			case 'aq':
+				new_text = summaryItems[summaryItem] + ' research funds, ';
+				break;
+		}
+		$('#summary').text($('#summary').text() + new_text);
+	}
+	$('#summary').text($('#summary').text().substring(0, $('#summary').text().length-2));
+	
+	lastSearch = $('#explore-input').val();
+	
+	
+	//var yuckwords = ['mat','mat','sat','sat','sat','sat'];
+	
+	var objwords = {};
+	for(var y in yuckwords) {
+		if (yuckwords[y] !== 'startup' && yuckwords[y].length > 2 && yuckwords[y].indexOf('http') === -1 && yuckwords[y].indexOf('/') === -1) {
+			if (!objwords[yuckwords[y]]) {
+				objwords[yuckwords[y]] = 0;
+			}
+			objwords[yuckwords[y]]++;
+		}
+	}
+	var words = [];
+	for(var o in objwords) {
+		if (objwords[o] > 1) {
+			var obj = {};
+			obj['text'] = o;
+			obj['weight'] = objwords[o];
+			obj['handlers'] = {click: function() { addTag($(this).text()) }};
+			words.push(obj);
+		}
+	}
+	$('#tagcloud').jQCloud('destroy');
+	$('#tagcloud').jQCloud(words);
+	refreshMarkers();
+}
+
+function addTag(tag) {
+	$('#explore-input').val($('#explore-input').val()+' '+tag);
+	inputChanged();
+}
 
 function comparez(a,b) {
   if (a.rating < b.rating)
@@ -183,22 +215,32 @@ function initMap() {
    });
  }
  
+setInterval(function() {
+	 google.maps.event.trigger(map, 'resize');
+}, 1000);
+ 
 function refreshMarkers() {
 	removeMarkers();
-	console.log(locations);
-	console.log(locationlookups);
-	console.log('refreshing markers');
-	console.log(map);
 	for(var loc in locations) {
 		var count = locations[loc];
 		var pos = locationlookups[loc];
-		console.log(pos);
-		var marker = new google.maps.Marker({
-			position: pos,
-		     map: map,
-		     title: count
-	 	});
-	 	gmarkers.push(marker);
+		
+		if (count > 10) {
+			count = 10;
+		}
+	 	
+	 	var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: pos,
+            radius: 500 * 100 * count
+        });
+	 	
+	 	gmarkers.push(cityCircle);
 	}
 }
 
