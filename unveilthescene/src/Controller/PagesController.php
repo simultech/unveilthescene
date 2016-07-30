@@ -65,25 +65,9 @@ class PagesController extends AppController
 
 	public function aqFundingRecipients()
 	{
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
-
-		$this->set('hello','world');
-
 		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/aq-funding-recipients.csv', true));
-		$array = array_map("str_getcsv", explode("\n", $csv));
-		array_pop($array);
 
-		array_walk($array, function(&$a) use ($array)
-		{
-			$a = array_combine($array[0], $a);
-	    });
-    	array_shift($array); # remove column header
-
-		$json = json_encode($array);
-
-		print_r($json);
+		print_r($this->convertCSVtoJSON($csv));
 		die();
 	}
 }

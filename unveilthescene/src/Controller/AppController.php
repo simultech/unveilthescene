@@ -59,4 +59,18 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+
+	public function convertCSVtoJSON($csv)
+	{
+		$array = array_map("str_getcsv", explode("\n", $csv));
+
+		array_pop($array);
+		array_walk($array, function(&$a) use ($array)
+		{
+			$a = array_combine($array[0], $a);
+	    });
+    	array_shift($array); # remove column header
+
+		return json_encode($array);
+	}
 }
