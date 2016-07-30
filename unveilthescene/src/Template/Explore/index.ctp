@@ -32,7 +32,7 @@
 <!-- TEMPLATES -->
 
 <script id="investor-template" type="text/x-handlebars-template">
-  <div class="entry">
+  <div class="entry entry_investor">
     <h1><a href="{{user_link}}" target="_blank">{{user_name}}</a></h1>
     <div class="description">{{user_description}}</div>
     <div class="location">Located in {{location}}</div>
@@ -43,7 +43,7 @@
 
 
 <script id="startup-template" type="text/x-handlebars-template">
-  <div class="entry">
+  <div class="entry entry_startup">
     <h1><a href="{{user_link}}" target="_blank">{{user_name}}</a></h1>
     <div class="description">{{user_description}}</div>
     <div class="location">Located in {{location}}</div>
@@ -52,7 +52,7 @@
 </script>
 
 <script id="aq-template" type="text/x-handlebars-template">
-  <div class="entry">
+  <div class="entry entry_aq">
     <h1>{{program}}</h1>
     <h2>{{sector}}</h2>
     <h3>{{recipient}}</h3>
