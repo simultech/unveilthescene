@@ -27,7 +27,7 @@
 </form>
 </div>
 <div id="sidebar">
-	<div id="sidebar"></div>
+	<div id="map"></div>
 	<div id="tagcloud"></div>
 </div>
 <div id="explore-list"></div>
