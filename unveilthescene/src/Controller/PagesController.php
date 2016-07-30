@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+include_once('simple_html_dom.php');
 
 /**
  * Static content controller
@@ -105,6 +106,26 @@ class PagesController extends AppController
 		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/startups.csv', true));
 
 		print_r($this -> convertCSVtoJSON($csv));
+		die();
+	}
+
+	public function scrapeStartups()
+	{
+		set_time_limit(500);
+		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/startups.csv', true));
+		$array = json_decode($this -> convertCSVtoJSON($csv), true);
+
+		for ($i = 654; $i < count($array); $i++)
+		{
+			// Initialize session and set URL.
+			$item = $array[$i];
+			$result = $this -> scrape($item["user_link"]);
+			$html = str_get_html($result);
+
+			foreach($html -> find('div[class=company-logo]') as $element)
+				echo $element -> children(0) -> src . '<br>';
+		}
+
 		die();
 	}
 }
