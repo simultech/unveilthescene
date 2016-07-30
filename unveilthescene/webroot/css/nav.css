@@ -12,6 +12,7 @@
 
 #unveil-nav a.active {
 	color: #222;
+	font-weight: bold;
 }
 
 #unveil-nav a:hover {

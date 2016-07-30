@@ -52,6 +52,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/explore/', ['controller' => 'Explore', 'action' => 'index']);
     $routes->connect('/about/', ['controller' => 'Pages', 'action' => 'about']);
     $routes->connect('/tell/', ['controller' => 'Pages', 'action' => 'tell']);
+    $routes->connect('/stories/', ['controller' => 'Pages', 'action' => 'stories']);
 
 	$routes->connect('/api/aq-funding-recipients', ['controller' => 'Pages', 'action' => 'aqFundingRecipients']);
 	$routes->connect('/api/angel_list_investors', ['controller' => 'Pages', 'action' => 'angelListInvestors']);

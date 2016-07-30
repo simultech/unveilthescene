@@ -48,6 +48,10 @@ class PagesController extends AppController
     public function tell() {
 	    
     }
+    
+    public function stories() {
+	    
+    }
 
     public function display()
     {

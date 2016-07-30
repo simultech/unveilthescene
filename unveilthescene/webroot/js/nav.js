@@ -1,7 +1,7 @@
 var nav = [
 	'<a href="/">Setting the scene</a>',
 	'<a href="/explore/">Explore the scene</a>',
-	'<a href="/tell/">Tell us your story</a>',
+	'<a href="/stories/">Tell us your story</a>',
 	'<a href="/about/">About</a>',
 ];
 
@@ -13,6 +13,9 @@ $('document').ready(function() {
 			break;
 		case '/explore/':
 			act = 1;
+			break;
+		case '/stories/':
+			act = 2;
 			break;
 		case '/tell/':
 			act = 2;

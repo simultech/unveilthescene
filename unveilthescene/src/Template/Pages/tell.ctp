@@ -1,3 +1,4 @@
+<form>
 <p id="tell">
 I am a 
 <input> 
@@ -17,7 +18,11 @@ from
 and I would like to see innovation within our community around 
 <br /><textarea></textarea><br />
 If anyone is interested in discussing with me further, you can contact me at <input /> (we will not publicly show your contact information)
+<input type='submit' value='Submit your story' />
 </p>
+</form>
+<p>&nbsp;</p>
+
 
 <style>
 #tell {
@@ -35,6 +40,7 @@ If anyone is interested in discussing with me further, you can contact me at <in
 	width:100%;
 	text-align:center;
 	color:teal;
+	background:rgba(255,255,255,0.9);
 }
 #tell textarea {
 	font-size:120%;
@@ -43,6 +49,7 @@ If anyone is interested in discussing with me further, you can contact me at <in
 	border-color: #bfbfbf;
 	color:teal;
 	padding:5px;
+	background:rgba(255,255,255,0.9);
 }
 #tell select {
 	font-size:120%;
