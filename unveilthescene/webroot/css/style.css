@@ -1,0 +1,18 @@
+#explore-list {
+	width: 50%;
+	margin-top:180px;
+}
+#header {
+	position:fixed;
+	background:#fff;
+	width:100%;
+}
+#sidebar {
+	width: 40%;
+	position:fixed;
+	background: red;
+	height: 500px;
+	float: right;
+	right: 0;
+	top:170px;
+}

@@ -1,3 +1,4 @@
+<div id="header" data-spy="affix" data-offset-top="0px">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -18,13 +19,17 @@
     </div>
   </div>
 </nav>
-
 <h1>Unveil the scene</h1>
 <form>
   <div class="form-group">
     <input type="text" id="explore-input" class="form-control" placeholder="Filter">
   </div>
 </form>
+</div>
+<div id="sidebar">
+	<div id="sidebar"></div>
+	<div id="tagcloud"></div>
+</div>
 <div id="explore-list"></div>
 
 
