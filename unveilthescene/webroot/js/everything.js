@@ -83,9 +83,9 @@ var items = [];
 
 function loadData() {
 	urls = {
-		'aq': 'http://unveil.local/api/aq-funding-recipients',
-		'investor': 'http://unveil.local/api/angel_list_investors',
-		'startup': 'http://unveil.local/api/angel_list_startups',
+		'aq': '/api/aq-funding-recipients',
+		'investor': '/api/angel_list_investors',
+		'startup': '/api/angel_list_startups',
 	};
 	for(var url in urls) {
 		(function() {
