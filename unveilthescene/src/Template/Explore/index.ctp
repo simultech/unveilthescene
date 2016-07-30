@@ -1,36 +1,35 @@
+<?= $this->Html->script('nav.js') ?>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw&callback=initMap"></script>
     
-<div id="header" data-spy="affix"  data-offset-top="0px" class="row">
-	<nav class="navbar row navbar-default">
-		<div class="container">
-			<div class="navbar-header ">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-			  <a class="navbar-brand" href="#">Unveil the scene</a>
-    		</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="/">The Startup Story <span class="sr-only">(current)</span></a></li>
-					<li class="active"><a href="#">Explore our country</a></li>
-      			</ul>
-    		</div>
-  		</div>
-	</nav>
-	<div id="big-searchBar" class="text-center col-sm-6 col-sm-offset-3">
-		<h1 id="" ></h1>
+<div id="header-1141" class="section section-header">
+  <div class="header-panel header-logo-panel">
+    
+  </div>
+
+
+  <div class="header-panel header-social-panel " style="margin-top:-7px;">
+    
+    <ul class="header-social-list" data-social-widgets="" data-social-counts="true">
+      
+    </ul>
+    
+  </div>
+  <div class="small-menu ">
+    <a href="#">
+      <i class="icon-menu"></i>
+    </a>
+  </div>
+</div>
+
+	<div id="big-searchBar">
 		<form>
 		  <div class="form-group">
 		    <input type="text" id="explore-input" class="form-control text-center" placeholder="Start Exploring">
 		  </div> 
 		</form>
-		
 	</div>
-</div>
+
 <div id="exploreBody" class="row">
 	<div class="" id="explore_sugestions">
 		<!-- here comes all the suggestions when user lands in this page-->

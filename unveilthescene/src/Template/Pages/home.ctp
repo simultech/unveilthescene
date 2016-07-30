@@ -1,3 +1,6 @@
+<?= $this->Html->script('jquery.js') ?>
+<?= $this->Html->script('nav.js') ?>
+<?= $this->Html->css('nav.css') ?>
 <?php
 
 	$state = 'Queensland';

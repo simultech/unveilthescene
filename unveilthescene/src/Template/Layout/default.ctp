@@ -17,6 +17,7 @@
 	<?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('jqcloud.css') ?>
     <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('nav.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -24,8 +25,6 @@
 </head>
 <body>
     <?= $this->Flash->render() ?>
-    <div class="container-fluid clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
+    <?= $this->fetch('content') ?>
 </body>
 </html>
