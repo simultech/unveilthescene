@@ -16,7 +16,7 @@ from
 </select>
 and I would like to see innovation within our community around 
 <br /><textarea></textarea><br />
-If anyone is interested in discussing with me further, you can contact me at <input /> (private).
+If anyone is interested in discussing with me further, you can contact me at <input /> (we will not publicly show your contact information)
 </p>
 
 <style>
@@ -27,19 +27,30 @@ If anyone is interested in discussing with me further, you can contact me at <in
 	margin:0 auto;
 	text-align:center;
 	line-height:2.2em;
+	color:#222;
 }
 #tell input, #tell select {
 	display:block;
 	width:100%;
+	text-align:center;
+	color:teal;
 }
 #tell textarea {
-	font-size:140%;
+	font-size:120%;
 	width:100%;
 	height:300px;
 	border-color: #bfbfbf;
+	color:teal;
+	padding:5px;
 }
 #tell select {
-	font-size:140%;
+	font-size:120%;
 	-webkit-appearance: menulist-button;
+}
+body {
+	background-image: url('/img/tellbackground.jpg');
+	background-attachment: fixed;
+    background-position: center; 
+    background-size:     cover;
 }
 </style>
