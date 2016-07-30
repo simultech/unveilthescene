@@ -73,4 +73,13 @@ class AppController extends Controller
 
 		return json_encode($array);
 	}
+
+	// Because all data from the data.gov.au & data.qld.gov.au API has the format of data.result.records
+	public function getRecordsFromDataGovAu($url)
+	{
+		$json = json_decode(file_get_contents($url));
+		$records = json_encode($json -> result -> records);
+
+		return $records;
+	}
 }

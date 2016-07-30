@@ -72,7 +72,15 @@ class PagesController extends AppController
 	{
 		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/aq-funding-recipients.csv', true));
 
-		print_r($this->convertCSVtoJSON($csv));
+		print_r($this -> convertCSVtoJSON($csv));
+		die();
+	}
+
+	public function sa3RegionInnovation()
+	{
+		$records = $this -> getRecordsFromDataGovAu('http://data.gov.au/api/action/datastore_search?resource_id=223e2340-5c0a-4bd8-8818-e3cd2fee13c8');
+
+		print_r($records);
 		die();
 	}
 	
