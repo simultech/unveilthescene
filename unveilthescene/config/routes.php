@@ -51,6 +51,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
 
 	$routes->connect('/api/aq-funding-recipients', ['controller' => 'Pages', 'action' => 'aqFundingRecipients']);
+	$routes->connect('/api/angel_list_investors', ['controller' => 'Pages', 'action' => 'angelListInvestors']);
+	$routes->connect('/api/angel_list_startups', ['controller' => 'Pages', 'action' => 'angelListStartups']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

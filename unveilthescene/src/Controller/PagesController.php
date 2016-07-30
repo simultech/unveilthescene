@@ -75,4 +75,20 @@ class PagesController extends AppController
 		print_r($this->convertCSVtoJSON($csv));
 		die();
 	}
+	
+	public function angelListInvestors()
+	{
+		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/investors.csv', true));
+
+		print_r($this->convertCSVtoJSON($csv));
+		die();
+	}
+	
+	public function angelListStartups()
+	{
+		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/startups.csv', true));
+
+		print_r($this->convertCSVtoJSON($csv));
+		die();
+	}
 }
