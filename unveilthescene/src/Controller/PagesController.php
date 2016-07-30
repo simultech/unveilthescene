@@ -35,11 +35,11 @@ class PagesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
-     
+
     public function home() {
 	    $this->viewBuilder()->layout(false);
     }
-     
+
     public function display()
     {
         $path = func_get_args();
@@ -83,20 +83,28 @@ class PagesController extends AppController
 		print_r($records);
 		die();
 	}
-	
+
+	public function scienceCapability()
+	{
+		$records = $this -> getRecordsFromDataGovAu('https://data.qld.gov.au/api/action/datastore_search?resource_id=8b9178e0-2995-42ad-8e55-37c15b4435a3');
+
+		print_r($records);
+		die();
+	}
+
 	public function angelListInvestors()
 	{
 		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/investors.csv', true));
 
-		print_r($this->convertCSVtoJSON($csv));
+		print_r($this -> convertCSVtoJSON($csv));
 		die();
 	}
-	
+
 	public function angelListStartups()
 	{
 		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/angellist/startups.csv', true));
 
-		print_r($this->convertCSVtoJSON($csv));
+		print_r($this -> convertCSVtoJSON($csv));
 		die();
 	}
 }
