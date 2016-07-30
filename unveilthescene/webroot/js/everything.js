@@ -1,5 +1,8 @@
 var maxItems = 100;
 var lastSearch = '';
+var locations = {};
+
+var locationlookups = {};
 
 $(document).ready(function() {
 	$('#main_area').css({display:'none'});
@@ -42,7 +45,7 @@ $(document).ready(function() {
 		}
 		
 		var yuckwords = [];
-		var locations = {};
+		locations = {};
 		
 		toRenderItems.sort(comparez);
 		for(i in toRenderItems) {
@@ -50,13 +53,14 @@ $(document).ready(function() {
 			if(toRenderItems[i]['location']) {
 				if(!locations[toRenderItems[i]['location']]) {
 					locations[toRenderItems[i]['location']] = 0;
+					if(!locationlookups[toRenderItems[i]['location']]) {
+						addLocation(toRenderItems[i]['location']);
+					}
 				}
 				locations[toRenderItems[i]['location']]++;
 			}
 			yuckwords = yuckwords.concat(toRenderItems[i]['_search'].split(' '));
 		}
-		
-		console.log(locations);
 		
 		lastSearch = $('#explore-input').val();
 		
@@ -83,6 +87,7 @@ $(document).ready(function() {
 		}
 		$('#tagcloud').jQCloud('destroy');
 		$('#tagcloud').jQCloud(words);
+		refreshMarkers();
 	});
 });
 
@@ -92,6 +97,15 @@ function comparez(a,b) {
   if (a.rating > b.rating)
     return -1;
   return 0;
+}
+
+function addLocation(location) {
+	$.ajax({
+		url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+location+',%20Australia&key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw',
+		success: function(data) {
+			locationlookups[location] = data.results[0].geometry.location;
+		}
+	});
 }
 
 function shuffle(array) {
@@ -158,19 +172,40 @@ function loadData() {
 	}
 }
 
+var map;
+var gmarkers = [];
+
 function initMap() {
-        var myLatLng = {lat: -25.363, lng: 131.044};
+	var myLatLng = {lat: -25.363, lng: 121.044};
+   map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 3,
+     center: myLatLng
+   });
+ }
+ 
+function refreshMarkers() {
+	removeMarkers();
+	console.log(locations);
+	console.log(locationlookups);
+	console.log('refreshing markers');
+	console.log(map);
+	for(var loc in locations) {
+		var count = locations[loc];
+		var pos = locationlookups[loc];
+		console.log(pos);
+		var marker = new google.maps.Marker({
+			position: pos,
+		     map: map,
+		     title: count
+	 	});
+	 	gmarkers.push(marker);
+	}
+}
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: myLatLng
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Hello World!'
-        });
-      }
+function removeMarkers(){
+    for(i=0; i<gmarkers.length; i++){
+        gmarkers[i].setMap(null);
+    }
+}
 
 loadData();
