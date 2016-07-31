@@ -53,6 +53,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/about/', ['controller' => 'Pages', 'action' => 'about']);
     $routes->connect('/tell/', ['controller' => 'Pages', 'action' => 'tell']);
     $routes->connect('/stories/', ['controller' => 'Pages', 'action' => 'stories']);
+    $routes->connect('/facts/', ['controller' => 'Pages', 'action' => 'facts']);
 
 	$routes->connect('/api/aq-funding-recipients', ['controller' => 'Pages', 'action' => 'aqFundingRecipients']);
 	$routes->connect('/api/angel_list_investors', ['controller' => 'Pages', 'action' => 'angelListInvestors']);

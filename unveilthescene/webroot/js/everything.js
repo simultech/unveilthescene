@@ -96,7 +96,7 @@ function inputChanged() {
 	
 	var objwords = {};
 	for(var y in yuckwords) {
-		if (yuckwords[y] !== 'startup' && yuckwords[y].length > 2 && yuckwords[y].indexOf('http') === -1 && yuckwords[y].indexOf('/') === -1) {
+		if (yuckwords[y] !== 'startup' && yuckwords[y].length > 2 && yuckwords[y].indexOf('http') === -1 && yuckwords[y].indexOf('/') === -1 && yuckwords[y].indexOf('_') === -1 && yuckwords[y].indexOf('and') === -1) {
 			if (!objwords[yuckwords[y]]) {
 				objwords[yuckwords[y]] = 0;
 			}
@@ -211,10 +211,9 @@ var map;
 var gmarkers = [];
 
 function initMap() {
-	var myLatLng = {lat: -25.363, lng: 121.044};
    map = new google.maps.Map(document.getElementById('map'), {
      zoom: 3,
-     center: myLatLng
+     center: {lat: -1.363, lng: 95.044}
    });
  }
  

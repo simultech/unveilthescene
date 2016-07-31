@@ -30,17 +30,15 @@
   <div class="entry entry_investor panel panel-default">
 <!-- 	   <div class="panel-heading"></div> -->
   	<div class="panel-body">
-	  	<div class="col-sm-3">
-		  			  	<img src={{somethng}}>
+	  	<div class="col-sm-3 rich_media">
+		  			  	<img src={{photo}}>
 
 	  	</div>
-	  		<div class="col-sm-9 rich_media">
-
-    <h2><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
-    <div class="description">{{user_description}}</div>
-    <div class="location">Located in {{location}}</div>
-    <div class="investments">Investments: {{investments}}</div>
-    <div class="followers">Angel List Followers: {{followers}}</div>
+    <h2 class="psh"><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
+    <div class="description psh">{{user_description}}</div>
+    <div class="location psh">Located in {{location}}</div>
+    <div class="investments psh">Investments: {{investments}}</div>
+    <div class="followers psh">Angel List Followers: {{followers}}</div>
 	  	  </div>
   	</div>
   </div>
@@ -58,6 +56,8 @@
 	  	  <h2><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
 	  	  <div class="description">{{user_description}}</div>
 	  	  <div class="location">Located in {{location}}</div>
+	  	  <div class="location">Categories: {{tags}}</div>
+	  	  <div class="location">Website: <a href="{{website}}" target="_blank">{{website}}</a></div>
 	  	  <div class="followers">Angel List Followers: {{followers}}</div>
 	 </div>
 	</div>

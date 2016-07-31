@@ -52,6 +52,10 @@ class PagesController extends AppController
     public function stories() {
 	    
     }
+    
+    public function facts() {
+	    
+    }
 
     public function display()
     {
