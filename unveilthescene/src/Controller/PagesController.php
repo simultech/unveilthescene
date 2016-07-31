@@ -76,8 +76,12 @@ class PagesController extends AppController
 		$this->set('stories',$stories);
     }
     
+    public function factscode() {
+	    $this->viewBuilder()->layout(false);
+    }
+    
     public function facts() {
-	    
+	    $this->viewBuilder()->layout(false);
     }
 
     public function display()

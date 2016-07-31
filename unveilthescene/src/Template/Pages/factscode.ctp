@@ -23,8 +23,8 @@
 <p class='hero'>To illustrate the current state of start-up innovation within Australia, we have used data science and R to analyse the government data sets.  To explore how this data is generated, click "show code" on the right hand side".  </p>
 
 <div id='hideshow'>
-	<a href="/facts/code/">Show code</a>
-	<a href="/facts/" class="active">Hide code</a>
+	<a href="/facts/code/" class="active">Show code</a>
+	<a href="/facts/">Hide code</a>
 </div>
 
 <style>
@@ -66,7 +66,7 @@
 
 	$state = 'Queensland';
 
-	$contents = file_get_contents('facts/facts.html');
+	$contents = file_get_contents('facts/facts_code.html');
 	$contents = str_replace('./media', './homepage/media/', $contents);
 	$contents = str_replace('./static', './homepage/static/', $contents);
 	$contents = str_replace('${STATE}', $state, $contents);
