@@ -19,6 +19,9 @@ use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 include_once('simple_html_dom.php');
 
+
+use Cake\ORM\TableRegistry;
+
 /**
  * Static content controller
  *
@@ -50,7 +53,13 @@ class PagesController extends AppController
     }
     
     public function stories() {
-	    
+		$articles = TableRegistry::get('Stories');
+		$query = $articles->find();
+		$stories = [];
+		foreach ($query as $row) {
+			$stories[] = $row;
+		}
+		$this->set('stories',$stories);
     }
     
     public function facts() {
