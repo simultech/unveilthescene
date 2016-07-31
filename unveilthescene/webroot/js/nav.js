@@ -18,6 +18,9 @@ $('document').ready(function() {
 		case '/facts/':
 			act = 2;
 			break;
+		case '/facts/code/':
+			act = 2;
+			break;
 		case '/stories/':
 			act = 3;
 			break;

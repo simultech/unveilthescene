@@ -28,6 +28,9 @@
 </div>
 
 <style>
+	#header {
+		display:none;
+	} 
 	.hero {
 		font-size:120%;
 		padding:20px;
