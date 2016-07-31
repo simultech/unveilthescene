@@ -31,7 +31,6 @@ use Cake\ORM\TableRegistry;
  */
 class PagesController extends AppController
 {
-
     /**
      * Displays a view
      *
@@ -43,11 +42,11 @@ class PagesController extends AppController
     public function home() {
 	    $this->viewBuilder()->layout(false);
     }
-    
+
     public function about() {
 	    $this->viewBuilder()->layout(false);
     }
-    
+
     public function tell() {
 	    if($this->request->data) {
 		    $articlesTable = TableRegistry::get('Stories');
@@ -65,7 +64,7 @@ class PagesController extends AppController
 			}
 		}
     }
-    
+
     public function stories() {
 		$articles = TableRegistry::get('Stories');
 		$query = $articles->find();
@@ -75,11 +74,11 @@ class PagesController extends AppController
 		}
 		$this->set('stories',$stories);
     }
-    
+
     public function factscode() {
 	    $this->viewBuilder()->layout(false);
     }
-    
+
     public function facts() {
 	    $this->viewBuilder()->layout(false);
     }
@@ -131,8 +130,18 @@ class PagesController extends AppController
 	public function scienceCapability()
 	{
 		$records = $this -> getRecordsFromDataGovAu('https://data.qld.gov.au/api/action/datastore_search?resource_id=8b9178e0-2995-42ad-8e55-37c15b4435a3');
+		$array = json_decode($records, true);
 
-		print_r($records);
+		foreach ( $array as $k=>$v )
+		{
+			$array[$k] ['subsector'] = $array[$k] ['Sub-sector'];
+			$array[$k] ['keywords'] = $array[$k] ['Key words'];
+
+			unset($array[$k]['Sub-sector']);
+			unset($array[$k]['Key words']);
+		}
+
+		print_r(json_encode($array));
 		die();
 	}
 
