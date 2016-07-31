@@ -1,9 +1,9 @@
-<form>
+<form method='post'>
 <p id="tell">
 I am a 
-<input> 
+<input name='sector'> 
 from 
-<select>
+<select name='location'>
 	<option></option>
 	<option>New South Wales</option>
 	<option>Queensland</option>
@@ -16,8 +16,8 @@ from
 	<option>Outside Australia</option>
 </select>
 and I would like to see innovation within our community around 
-<br /><textarea></textarea><br />
-If anyone is interested in discussing with me further, you can contact me at <input /> (we will not publicly show your contact information)
+<br /><textarea name='story'></textarea><br />
+If anyone is interested in discussing with me further, you can contact me at <input name='contact' /> (we will not publicly show your contact information)
 <input type='submit' value='Submit your story' />
 </p>
 </form>

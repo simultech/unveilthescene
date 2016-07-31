@@ -49,7 +49,20 @@ class PagesController extends AppController
     }
     
     public function tell() {
-	    
+	    if($this->request->data) {
+		    $articlesTable = TableRegistry::get('Stories');
+		    $article = $articlesTable->newEntity();
+		    $article->story = $this->request->data['story'];
+		    $article->sector = $this->request->data['sector'];
+		    $article->location = $this->request->data['location'];
+		    $article->contact = $this->request->data['contact'];
+		    if ($articlesTable->save($article)) {
+			    $id = $article->id;
+			    return $this->redirect(
+					['controller' => 'Pages', 'action' => 'stories']
+				);
+			}
+		}
     }
     
     public function stories() {
