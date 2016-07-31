@@ -56,6 +56,7 @@ class PagesController extends AppController
 		    $article->sector = $this->request->data['sector'];
 		    $article->location = $this->request->data['location'];
 		    $article->contact = $this->request->data['contact'];
+		    $article->created = date('Y-m-d H:i:s', strtotime('+10 hours'));
 		    if ($articlesTable->save($article)) {
 			    $id = $article->id;
 			    return $this->redirect(

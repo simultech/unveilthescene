@@ -13,7 +13,7 @@
 ?>
 	<div class='story'>
 	<div class='inner'>
-		<h3>From <?php echo $story['sector']; ?> in <?php echo $story['location']; ?></h3>
+		<h3>I am a <?php echo $story['sector']; ?> from <?php echo $story['location']; ?></h3>
 		<p><?php echo $story['story']; ?></p>
 		<p class='date'>Added at <?php echo $story['created']; ?></p>
 	</div>
