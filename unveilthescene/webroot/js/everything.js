@@ -198,6 +198,7 @@ function loadData() {
 		'aq': '/api/aq-funding-recipients',
 		'investor': '/api/angel_list_investors',
 		'startup': '/api/angel_list_startups',
+		'research': '/api/science-capability'
 	};
 	for(var url in urls) {
 		(function() {
@@ -210,7 +211,7 @@ function loadData() {
 						data[dat]['_template'] = typ;
 						data[dat]['_search'] = '';
 						for(var attr in data[dat]) {
-							data[dat]['_search'] += ' '+data[dat][attr].toLowerCase();
+							data[dat]['_search'] += ' '+(''+data[dat][attr]).toLowerCase();
 						}
 					}
 					items = items.concat(data);

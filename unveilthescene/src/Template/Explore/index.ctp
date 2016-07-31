@@ -101,11 +101,7 @@
 <script id="aq-template" type="text/x-handlebars-template">
   <div class="entry entry_aq panel panel-default">
 	  <div class="panel-body">
-		  	  	<div class="col-sm-3 rich_media">
-			  	  			  	<img src={{somethng}}>
-		  	  	</div>
-
-		<div class="col-sm-9">
+		<div class="col-sm-12">
     <h1>{{program}}</h1>
     <h2>{{sector}}</h2>
     <h3>{{recipient}}</h3>
@@ -115,6 +111,22 @@
     <div class="funding">Funding: <strong>${{funding}}</strong></div>
     <div class="priority"><strong>{{priority}}</strong></div>
     <div class="timeframe_months">Timeframe: <strong>{{timeframe_months}} months</strong></div>
+	  </div>
+	  </div>
+  </div>
+</script>
+
+<script id="research-template" type="text/x-handlebars-template">
+  <div class="entry entry_research panel panel-default">
+	  <div class="panel-body">
+		<div class="col-sm-12">
+    <h1>{{Name}}</h1>
+    <h3>{{Sector}}</h3>
+    <h4>{{recipient}}</h4>
+    <div class="description">{{Description}}</div>
+    <div class="partner">Located in <strong>{{Suburb}}</strong></div>
+    <div class="funding">Postcode: <strong>{{Postcode}}</strong></div>
+    <div class="location">Website: <strong><a href="{{Weblink}}" target="_blank">{{Weblink}}</a></strong></div>
 	  </div>
 	  </div>
   </div>
