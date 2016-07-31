@@ -11,7 +11,7 @@ aside {
 $('document').ready(function() {
 	setTimeout(function() {
 		$('aside').css({visibility:'visible'});		
-	}, 1000);
+	}, 8000);
 });
 </script>
 
