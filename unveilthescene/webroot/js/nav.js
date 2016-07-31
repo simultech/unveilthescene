@@ -35,7 +35,7 @@ $('document').ready(function() {
 		nav[act] = nav[act].replace('href', 'class="active" href');
 	}
 	var dommm = $('<div id="unveil-nav"></div>');
-	var logo = $('<img src="/img/logo.png" style="margin-top:3px; height:30px;" />');
+	var logo = $('<img src="/img/logo.png" style="margin-top:3px; height:30px; position:fixed; right:10px;" />');
 	dommm.append(logo);
 	dommm.append(nav);
 	$('.section.section-header').append(dommm);
