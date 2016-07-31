@@ -161,6 +161,14 @@ class PagesController extends AppController
 		die();
 	}
 
+	public function brisbaneBusinessCentres()
+	{
+		$csv = utf8_encode(file_get_contents(WWW_ROOT . DS . '/csv/brisbane-business-centres.csv', true));
+
+		print_r($this -> convertCSVtoJSON($csv));
+		die();
+	}
+
 	public function scrapeStartups()
 	{
 		set_time_limit(500);
