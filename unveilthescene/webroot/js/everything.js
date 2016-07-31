@@ -132,9 +132,12 @@ function comparez(a,b) {
 }
 
 function addLocation(location) {
+	var keys = ['AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw', 'AIzaSyDRhTIyexxdrJfTiJIKyz9ROusGQe2AozE', 'AIzaSyBl1qVnQV_-fUIQ_73nV4Yf4N-K0jsWuUg'];
+	var key = keys[Math.floor(Math.random()*keys.length)];
 	$.ajax({
-		url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+location+',%20Australia&key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw',
+		url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+location+',%20Australia&key='+key,
 		success: function(data) {
+			console.log(data);
 			locationlookups[location] = data.results[0].geometry.location;
 		}
 	});
