@@ -75,8 +75,9 @@
 	position: fixed;
 }
 #explore_sugestions {
-	background:orange;
-	height:300px;
+	margin: 40px;
+	width: 900px;
+	margin: 0 auto;
 }
 
 .section-header {
@@ -94,6 +95,10 @@
     text-align: right;
 }
 
+.suggest_heading {
+	text-align: center;
+}
+
 .entry h2 {
 	margin-top:0;
 }
@@ -104,4 +109,28 @@
 
 a:link {
 	color:teal;
+}
+
+.suggestion {
+	width:180px;
+	height:140px;
+	background:#fafafa;
+	border:1px solid #eee;
+	font-size:200%;
+	text-align: center;
+	padding:10px;
+	border-radius:8px;
+	cursor: pointer;
+	float:left;
+	margin: 20px;
+}
+
+.suggestion:hover {
+	background:teal;
+	color:#eee;	
+}
+
+.suggestion i {
+	display:block;
+	font-size:300%;
 }

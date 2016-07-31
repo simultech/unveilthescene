@@ -11,6 +11,16 @@ $(document).ready(function() {
 	});
 });
 
+function addSuggestion(text) {
+	if($('#explore-input').val() == '') {
+		$('#explore-input').val($('#explore-input').val()+''+text);
+	} else {
+		$('#explore-input').val($('#explore-input').val()+' '+text);
+	}
+	inputChanged();
+	$('#explore-input').focus();
+}
+
 function inputChanged() {
 	if ($('#explore-input').val() !== '') {
 		$('#main_area').css({display:'block'});

@@ -1,17 +1,51 @@
     <?= $this->Html->script('everything.js') ?>
+	<?= $this->Html->css('font-awesome.min.css') ?>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw&callback=initMap"></script>
 	<div id="big-searchBar">
 		<form>
 		  <div class="form-group">
-		    <input type="text" id="explore-input" class="form-control text-center" placeholder="Start Exploring">
+		    <input type="text" id="explore-input" autocomplete="off" class="form-control text-center" placeholder="Type to Start Exploring" autofocus>
 		  </div> 
 		</form>
 	</div>
 
 <div id="exploreBody" class="row">
+	<h3 class='suggest_heading'>Suggestions</h3>
 	<div class="" id="explore_sugestions">
 		<!-- here comes all the suggestions when user lands in this page-->
+		<div class="suggestion" onClick="addSuggestion('farm');">
+			<i class='fa fa-tree'></i>
+			farm
+		</div>
+		<div class="suggestion" onClick="addSuggestion('food');">
+			<i class='fa fa-birthday-cake'></i>
+			food
+		</div>
+		<div class="suggestion" onClick="addSuggestion('phd');">
+			<i class='fa fa-graduation-cap'></i>
+			phd
+		</div>
+		<div class="suggestion" onClick="addSuggestion('social');">
+			<i class='fa fa-user'></i>
+			social
+		</div>
+		<div class="suggestion" onClick="addSuggestion('mining');">
+			<i class='fa fa-truck'></i>
+			mining
+		</div>
+		<div class="suggestion" onClick="addSuggestion('travel');">
+			<i class='fa fa-plane'></i>
+			travel
+		</div>
+		<div class="suggestion" onClick="addSuggestion('environment');">
+			<i class='fa fa-recycle'></i>
+			environment
+		</div>
+		<div class="suggestion" onClick="addSuggestion('silicon');">
+			<i class='fa fa-money'></i>
+			silicon
+		</div>
 	</div>
 	<div class="row" id="main_area">
 		<div id="explore-list" class="col-sm-6 pull-right "></div>
