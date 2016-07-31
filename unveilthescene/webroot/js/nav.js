@@ -21,6 +21,9 @@ $('document').ready(function() {
 		case '/stories/':
 			act = 3;
 			break;
+		case '/stories':
+			act = 3;
+			break;
 		case '/tell/':
 			act = 3;
 			break;
