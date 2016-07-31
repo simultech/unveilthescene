@@ -132,3 +132,13 @@
 	  </div>
   </div>
 </script>
+
+<style>
+	div#tagcloud span {
+		cursor: pointer;
+		transition:transform 200ms ease-in-out;
+	}
+	div#tagcloud span:hover {
+		transform:scale(1.25);
+	}
+</style>

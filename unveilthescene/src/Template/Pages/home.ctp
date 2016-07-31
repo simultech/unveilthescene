@@ -1,6 +1,20 @@
 <?= $this->Html->script('jquery.js') ?>
 <?= $this->Html->script('nav.js') ?>
 <?= $this->Html->css('nav.css') ?>
+
+<style>
+aside {
+	visibility:hidden;
+}
+</style>
+<script>
+$('document').ready(function() {
+	setTimeout(function() {
+		$('aside').css({visibility:'visible'});		
+	}, 1000);
+});
+</script>
+
 <?php
 
 	$state = 'Queensland';
