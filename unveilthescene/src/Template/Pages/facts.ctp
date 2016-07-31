@@ -20,7 +20,7 @@
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p class='hero'>To illustrate the current state of start-up innovation within Australia, we have used data science and R to analyse the government data sets.  To explore how this data is generated, click "show code" on the right hand side".  </p>
+<p class='hero'>To illustrate the current state of start-up innovation within Australia, we have used data science methods using R to analyse a number of government data sets.  To learn more about how this data is generated, click "show code" on the right hand side".  </p>
 
 <div id='hideshow'>
 	<a href="/facts/code/">Show code</a>
@@ -29,16 +29,20 @@
 
 <style>
 	.hero {
-		font-size:200%;
+		font-size:120%;
 		padding:20px;
 		color:#444;
+		background:#ddd;
+		font-style:italic;
+		padding:10px 40px;
+		margin-top:70px;
 	}
 	#hideshow {
 		position:fixed;
 		width:400px;
 		height:100px;
-		top:5px;
-		right:5px;
+		top:65px;
+		right:15px;
 		z-index:99999;
 	}
 	#hideshow a {
