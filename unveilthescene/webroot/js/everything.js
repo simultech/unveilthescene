@@ -25,9 +25,12 @@ function inputChanged() {
 	if ($('#explore-input').val() !== '') {
 		$('#main_area').css({display:'block'});
 		$('#explore_sugestions').css({display:'none'});
+		$('.suggest_heading').css({display:'none'});
+		
 	} else {
 		$('#main_area').css({display:'none'});
 		$('#explore_sugestions').css({display:'block'});
+		$('.suggest_heading').css({display:'block'});
 	}
 	
 	if (lastSearch === $('#explore-input').val()) {
