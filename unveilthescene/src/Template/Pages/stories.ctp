@@ -34,9 +34,14 @@ setTimeout(function() {
 
 
 <style>
+	h2 {
+		color:#222;
+		text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+	}
 	.jumbotron {
 		margin-top:100px;
 		font-size:280%;
+		background:rgba(255,255,255,0.8);
 	}
 	div.container {
 		text-align:center;
@@ -57,5 +62,11 @@ setTimeout(function() {
 		background:#fafafa;
 		padding:10px;
 		color:#333;
+	}
+	body {
+		background-image:url('/img/haveyoursay.jpg');
+		background-attachment: fixed;
+    	background-position: center; 
+	    background-size:     cover;
 	}
 </style>
