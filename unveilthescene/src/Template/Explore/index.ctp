@@ -126,6 +126,7 @@
     <div class="description">{{Description}}</div>
     <div class="partner">Located in <strong>{{Suburb}}</strong></div>
     <div class="funding">Postcode: <strong>{{Postcode}}</strong></div>
+    <div class="funding">Keywords: <strong>{{keywords}}</strong></div>
     <div class="location">Website: <strong><a href="{{Weblink}}" target="_blank">{{Weblink}}</a></strong></div>
 	  </div>
 	  </div>
