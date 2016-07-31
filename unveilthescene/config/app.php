@@ -227,7 +227,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             'username' => 'root',
-            'password' => 'root',
+            'password' => 'govhack',
             'database' => 'unveil',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
