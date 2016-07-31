@@ -1,3 +1,4 @@
+    <?= $this->Html->script('everything.js') ?>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfam8f4RewusCspcfX_kqnIOlt54yAVw&callback=initMap"></script>
 	<div id="big-searchBar">
