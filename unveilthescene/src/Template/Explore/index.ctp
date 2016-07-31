@@ -70,9 +70,9 @@
 	  	</div>
     <h2 class="psh"><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
     <div class="description psh">{{user_description}}</div>
-    <div class="location psh">Located in {{location}}</div>
-    <div class="investments psh">Investments: {{investments}}</div>
-    <div class="followers psh">Angel List Followers: {{followers}}</div>
+    <div class="location psh">Located in <strong>{{location}}</strong></div>
+    <div class="investments psh">Investments: <strong>{{investments}}</strong></div>
+    <div class="followers psh">Angel List Followers: <strong>{{followers}}</strong></div>
 	  	  </div>
   	</div>
   </div>
@@ -89,10 +89,10 @@
 		<div class="col-sm-9">
 	  	  <h2><a href="{{user_link}}" target="_blank">{{user_name}}</a></h2>
 	  	  <div class="description">{{user_description}}</div>
-	  	  <div class="location">Located in {{location}}</div>
-	  	  <div class="location">Categories: {{tags}}</div>
-	  	  <div class="location">Website: <a href="{{website}}" target="_blank">{{website}}</a></div>
-	  	  <div class="followers">Angel List Followers: {{followers}}</div>
+	  	  <div class="location">Located in <strong>{{location}}</strong></div>
+	  	  <div class="location">Categories: <strong>{{tags}}</strong></div>
+	  	  <div class="location">Website: <strong><a href="{{website}}" target="_blank">{{website}}</a></strong></div>
+	  	  <div class="followers">Angel List Followers: <strong>{{followers}}</strong></div>
 	 </div>
 	</div>
   </div>
@@ -111,10 +111,10 @@
     <h3>{{recipient}}</h3>
     <div class="description">{{summary}}</div>
     <div class="location">Located in {{location}}</div>
-    <div class="partner">Partner {{partner}}</div>
-    <div class="funding">${{funding}}</div>
-    <div class="priority">{{priority}}</div>
-    <div class="timeframe_months">{{timeframe_months}} months</div>
+    <div class="partner">Partner <strong>{{partner}}</strong></div>
+    <div class="funding">Funding: <strong>${{funding}}</strong></div>
+    <div class="priority"><strong>{{priority}}</strong></div>
+    <div class="timeframe_months">Timeframe: <strong>{{timeframe_months}} months</strong></div>
 	  </div>
 	  </div>
   </div>
